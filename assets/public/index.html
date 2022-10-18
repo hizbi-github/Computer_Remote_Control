@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Remote-Keyboard</title>
+    <link href="styles.css" rel="stylesheet">
+    <!--<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>-->
+    <script src="vue.global.prod.js"></script>
+</head>
+<!--<body class="body-class dark-mode">-->
+<body class="body-class" id="body-ID">
+    <div class="root" id="root-ID">
+        <div class="page-routes" v-if="isOptionsButtonPressed == false">
+            <div class="title-window">
+                <h2 class="title-text">{{ appConfig.titleText }}</h2>
+                <h4 class="author-text">@hizbi-github</h4>
+                <div class="server-status-window">
+                    <div class="connection-status-div-button-window">
+                        <div id="connection-status-div-button" class="connection-status-div-button" v-bind:class="(appConfig.darkMode == 'on') ? 'connection-status-button-dark-mode' : 'connection-status-button-light-mode'" @click="connectDisconnectFromServer(), provideHapticFeedback()">Disconnect</div>
+                    </div>
+                    <div class="server-name-text">{{ appConfig.serverName }}</div>
+                </div>  
+            </div>
+
+            <div class="text-window-and-screenshot">
+                <div class="text-window">
+                    <div class="log-window" v-bind:class="(appConfig.darkMode == 'on') ? 'dark-mode' : 'light-mode'">
+                        <ul v-html="logList"> 
+                        </ul>
+                    </div>
+
+                    <div class="status-window" v-bind:class="(appConfig.darkMode == 'on') ? 'dark-mode' : 'light-mode'">
+                        <div class="status-row">
+                            <div class="status-title">Latency: </div>
+                            <div>{{ latency }}</div>
+                        </div>
+                        <div class="status-row">
+                            <div class="status-title">Volume: </div>
+                            <div>{{ currentVolume }}</div>
+                        </div>
+                        <button class="configuration-page-button" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="renderConfigurationScreen(), provideHapticFeedback()">Settings</button>
+                    </div>
+                </div>
+
+                <div class="screenshot-window-and-screenshot-buttons">
+                    <div class="screenshot-window" v-bind:class="(appConfig.darkMode == 'on') ? 'dark-mode' : 'light-mode'">
+                        <img class="screenshot-img" v-bind:src="imgScreenshot">
+                    </div>
+                    
+                    <div class="screenshot-buttons-window" v-bind:class="(appConfig.darkMode == 'on') ? 'dark-mode' : 'light-mode'">
+                        <button class="screenshot-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="showHiResScreenShot(), provideHapticFeedback()">Hi-Res Snap</button>
+                        <button class="screenshot-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="showHideScreenShot(), provideHapticFeedback()">{{ showHideScreenShotButtonText }}</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="volume-slider-window">
+                <input class="volume-slider" type="range">
+            </div>
+
+            <div class="input-buttons-window">
+                <div class="left-buttons-window">
+                    <button class="input-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="emulateKey('leftKeyOne'), provideHapticFeedback()">{{ appConfig.leftKeyOne[0] }}</button>
+                    <button class="input-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="emulateKey('leftKeyTwo'), provideHapticFeedback()">{{ appConfig.leftKeyTwo[0] }}</button>
+                    <button class="input-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="emulateKey('leftKeyThree'), provideHapticFeedback()">{{ appConfig.leftKeyThree[0] }}</button>
+                    <button class="input-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="emulateKey('leftKeyFour'), provideHapticFeedback()">{{ appConfig.leftKeyFour[0] }}</button>
+                    <button class="input-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="emulateKey('leftKeyFive'), provideHapticFeedback()">{{ appConfig.leftKeyFive[0] }}</button>
+                </div>
+
+                <div class="middle-buttons-window">
+                    <button class="input-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="emulateKey('leftKeyOne'), provideHapticFeedback()">{{ appConfig.leftKeyOne[0] }}</button>
+                    <button class="input-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="emulateKey('leftKeyTwo'), provideHapticFeedback()">{{ appConfig.leftKeyTwo[0] }}</button>
+                    <button class="input-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="emulateKey('leftKeyThree'), provideHapticFeedback()">{{ appConfig.leftKeyThree[0] }}</button>
+                    <button class="input-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="emulateKey('leftKeyFour'), provideHapticFeedback()">{{ appConfig.leftKeyFour[0] }}</button>
+                    <button class="input-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="emulateKey('leftKeyFive'), provideHapticFeedback()">{{ appConfig.leftKeyFive[0] }}</button>
+                </div>
+
+                <div class="right-buttons-window">
+                    <button class="input-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="emulateKey('rightKeyOne'), provideHapticFeedback()">{{ appConfig.rightKeyOne[0] }}</button>
+                    <button class="input-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="emulateKey('rightKeyTwo'), provideHapticFeedback()">{{ appConfig.rightKeyTwo[0] }}</button>
+                    <button class="input-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="emulateKey('rightKeyThree'), provideHapticFeedback()">{{ appConfig.rightKeyThree[0] }}</button>
+                    <button class="input-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="emulateKey('rightKeyFour'), provideHapticFeedback()">{{ appConfig.rightKeyFour[0] }}</button>
+                    <button class="input-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="emulateKey('rightKeyFive'), provideHapticFeedback()">{{ appConfig.rightKeyFive[0] }}</button>
+                </div>
+            </div>
+        </div>
+
+        <div v-if="isOptionsButtonPressed == true">
+            <div class="title-window">
+                <h2 class="title-text">Settings</h2>
+                <h4 class="author-text">@hizbi-github</h4>
+                <div class="server-status-window">
+                    <div class="connection-status-div-button-window">
+                        <div id="connection-status-div-button" class="connection-status-div-button" v-bind:class="(appConfig.darkMode == 'on') ? 'connection-status-button-dark-mode' : 'connection-status-button-light-mode'" @click="connectDisconnectFromServer(), provideHapticFeedback()"></div>
+                    </div>
+                    <div class="server-name-text">{{ appConfig.serverName }}</div>
+                </div> 
+            </div>
+
+            <div class="configuration-options-window">
+                <div class="configuration-buttons-window">
+                    <button class="configuration-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="toggleConnectionType(), provideHapticFeedback()">Connection</button>
+                    <button class="configuration-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="toggleScreenshotStreamType(), provideHapticFeedback()">Screen View</button>
+                    <button class="configuration-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="toggleHapticsVibrations(), provideHapticFeedback()">Haptics</button>
+                    <button class="configuration-buttons" v-bind:class="(appConfig.darkMode == 'on') ? 'button-dark-mode' : 'button-light-mode'" @click="toggleDarkOrLightMode(), provideHapticFeedback()">Dark Mode</button>       
+                </div>
+
+                <div class="configuration-states-window">
+                    <div class="configuration-states">
+                        <div class="options-text" v-bind:class="(appConfig.connectionType == 'websocket') ? 'selected-option' : 'un-selected-option'">websocket</div>
+                        <div class="options-text" v-bind:class="(appConfig.connectionType == 'http') ? 'selected-option' : 'un-selected-option'">http</div>
+                    </div>
+
+                    <div class="configuration-states">
+                        <div class="options-text" v-bind:class="(appConfig.screenshotStreamType == 'live') ? 'selected-option' : 'un-selected-option'">live</div>
+                        <div class="options-text" v-bind:class="(appConfig.screenshotStreamType == 'reactive') ? 'selected-option' : 'un-selected-option'">reactive</div>
+                    </div>
+                    
+                    <div class="configuration-states">
+                        <div class="options-text" v-bind:class="(appConfig.hapticsVibrations == 'on') ? 'selected-option' : 'un-selected-option'">on</div>
+                        <div class="options-text" v-bind:class="(appConfig.hapticsVibrations == 'off') ? 'selected-option' : 'un-selected-option'">off</div>
+                    </div>
+
+                    <div class="configuration-states">
+                        <div class="options-text" v-bind:class="(appConfig.darkMode == 'on') ? 'selected-option' : 'un-selected-option'">on</div>
+                        <div class="options-text" v-bind:class="(appConfig.darkMode == 'off') ? 'selected-option' : 'un-selected-option'">off</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="action-buttons" @click="backToMainScreen(), provideHapticFeedback()">Back</button>
+
+            <!--<input type="checkbox" class="toggle" id="optionToggle">-->
+            <!--<button class="toggle" id="optionToggle"></button>-->
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
+

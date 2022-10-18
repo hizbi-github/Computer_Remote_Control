@@ -1,0 +1,577 @@
+::-webkit-scrollbar 
+{
+    background: transparent; /* make scrollbar transparent */
+}
+
+/*::-webkit-
+{
+    user-select: none;
+}*/
+
+@media only screen and (min-width: 500px) 
+{
+    .body-class
+    {
+        font-family: "Open Sans", sans-serif;
+        /*max-width: 375px;
+        min-height: 750px;*/
+        width: 23vw;
+        /*height: 80vh;*/
+        margin: auto;
+        margin-top: 3%;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+@media only screen and (max-width: 499px) 
+{
+    .body-class
+    {
+        font-family: "Open Sans", sans-serif;
+        /*max-width: 375px;
+        min-height: 750px;*/
+        width: 95vw;
+        /*height: 80vh;*/
+        margin: auto;
+        margin-top: 3%;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/*.body-class
+{
+    font-family: "Open Sans", sans-serif;
+    max-width: 375px;
+    min-height: 750px;
+    width: 95vw;
+    height: 80vh;
+    margin: auto;
+    margin-top: 3%;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}*/
+
+.dark-mode
+{
+    color: ivory;
+    background-color: black;
+    border-color: ivory;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 20px;
+}
+
+.light-mode
+{
+    color: black;
+    background-color: ivory;
+    border-color: rgb(21, 134, 117);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 20px;
+}
+
+.root
+{
+    width: 100%;
+    height: 100%;
+}
+
+.title-window
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    min-height: 10vh;
+}
+
+.title-text
+{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1%;
+    margin-bottom: 0;
+}
+
+.author-text
+{
+    text-align: center;
+    font-size: 0.5rem;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 0;
+}
+
+.server-status-window
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 1%;
+}
+
+.connection-status-div-button-window
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+}
+
+.connection-status-div-button
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.5rem;
+    touch-action: manipulation;
+    border-width: 2px;
+    border-radius: 25px;
+    border-style: none;
+    outline: none;
+    width: 40%;
+    height: 1vh;
+}
+
+.connection-status-button-dark-mode
+{
+    color: ivory;
+    /*border-color: goldenrod;*/
+}
+
+.connection-status-button-light-mode
+{
+    color: black;
+    /*border-color: rgb(185, 85, 85);*/
+}
+
+.server-name-text
+{
+    font-weight: bolder;
+    text-align: center;
+    width: 65%;
+}
+
+.text-window-and-screenshot
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    /*height: 243px;*/
+    height: 30vh;
+    margin-bottom: 3%;
+}
+
+.text-window
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35%;
+}
+
+.log-window
+{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: left;
+    font-size: 0.6rem;
+    min-height: 65%;
+    overflow-y: scroll;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 0;
+    border-left-width: 0;
+    border-bottom-width: 0;
+}
+
+ul
+{
+    list-style-type: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    /*padding-right: 0;*/
+}
+
+.status-window
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    min-height: 35%;
+    padding-right: 5%;
+    padding-left: 5%;
+    border-radius: 0;
+    border-left-width: 0;
+}
+
+.status-row
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+    
+.status-title
+{
+    font-weight: bolder;
+    white-space: pre-wrap; /* Keeps the white spaces while also allowing word wrapping */
+}
+
+.configuration-page-button
+{
+    font-size: 0.9rem;
+    touch-action: manipulation; 
+    border-width: 2px;
+    border-radius: 25px;
+    border-style: solid;
+    outline: none;
+    width: 75%;
+    height: 30%;
+    margin: 5%;
+}
+
+.screenshot-window-and-screenshot-buttons
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 65%;
+}
+
+.screenshot-window
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 65%;
+    padding: 0;
+    padding-right: 5%;
+    padding-left: 5%;
+    margin: 0;
+    border-radius: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+}
+
+.screenshot-img
+{
+    /*width: 100px;
+    height: 57px;*/
+    width: 100%;
+    height: 85%;
+    border-width: 0;
+    border-radius: 10px;
+    border-style: solid;
+    padding: 0;
+    margin: 0;
+}
+
+.screenshot-buttons-window
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 35%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+}
+
+.input-buttons-window
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 35vh;
+    margin: 0;
+    padding: 0;
+}
+
+.left-buttons-window
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin: 0;
+}
+
+.middle-buttons-window
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin: 0;
+}
+
+.right-buttons-window
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin: 0;
+}
+
+.volume-slider-window
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    width: 90%;
+    margin: 0;
+}
+
+.volume-slider
+{
+    /* This is best that can be done to make the range slider vertical. */
+    /* Tested with Chrome, FireFox, Edge, Opera on desktop. For phones, only 
+    /* tested on Chrome Android and Bromite.  */
+    /*-webkit-appearance: slider-vertical;*/
+    width: 50%;
+    height: 3vh;
+}
+
+.configuration-page-button-window
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.configuration-options-window
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 35vh;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-style: solid;
+    border-width: 5px;
+    border-left-width: 0;
+    border-right-width: 0;
+}
+
+.configuration-buttons-window
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.configuration-states-window
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.configuration-states
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+    height: 25%;
+    margin: 5%;
+}
+
+.options-text
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;    
+    font-size: 0.9rem;
+    font-weight: 400;
+    border-color: transparent;
+    border-width: 5px;
+    border-radius: 25px;
+    border-style: solid;
+    outline: none;
+    height: 20%;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.selected-option 
+{
+    /*background-color: rgb(23, 250, 136);*/
+    background-color: rgb(17, 179, 98); /* Works best both in dark and light modes. */
+}
+
+.un-selected-option 
+{
+    background-color: transparent;
+}
+
+.screenshot-buttons
+{
+    font-size: 1rem;
+    font-weight: bold;
+    touch-action: manipulation;
+    border-width: 2px;
+    border-radius: 25px;
+    border-style: solid;
+    outline: none;
+    width: 45%;
+    height: 70%;
+}
+
+.input-buttons
+{
+    font-size: 0.7rem;
+    /*font-weight: bold;*/
+    text-transform: uppercase;
+    word-wrap: break-word;
+    touch-action: manipulation;
+    border-width: 0;
+    border-radius: 25px;
+    border-style: none;
+    outline: none;
+    width: 100%;
+    height: 20%;
+    /*margin: 0;*/
+}
+
+/*.configuration-page-button
+{
+    font-size: 0.9rem;
+    font-weight: 400;
+    touch-action: manipulation; 
+    border-width: 5px;
+    border-radius: 25px;
+    border-style: solid;
+    outline: none;
+    width: 75%;
+    height: 20%;
+    margin: 5%;
+}*/
+
+.configuration-buttons
+{
+    font-size: 0.9rem;
+    font-weight: 400;
+    touch-action: manipulation; 
+    border-width: 5px;
+    border-radius: 25px;
+    border-style: solid;
+    outline: none;
+    width: 75%;
+    height: 20%;
+    margin: 5%;
+}
+
+.button-dark-mode
+{
+    color: ivory;
+    background-color:  black;
+    border-color: goldenrod;
+}
+
+.button-light-mode
+{
+    color: black;
+    background-color:  ivory;
+    border-color: rgb(185, 85, 85);
+}
+
+@media (hover: hover) 
+{
+    .configuration-page-button:hover 
+    {
+        color: ivory;
+        background-color: rgb(185, 85, 85);
+        cursor: pointer;
+    }
+    .screenshot-buttons:hover 
+    {
+        color: ivory;
+        background-color: rgb(185, 85, 85);
+        cursor: pointer;
+    }   
+
+    .input-buttons:hover 
+    {
+        color: ivory;
+        background-color: rgb(185, 85, 85);
+        cursor: pointer;
+    }
+}
+
+.configuration-page-button:active 
+{
+  color: black;
+  background-color: goldenrod;
+}
+
+.screenshot-buttons:active 
+{
+  color: black;
+  background-color: goldenrod;
+}
+
+.input-buttons:active 
+{
+  color: black;
+  background-color: goldenrod;
+}
+
+
+/*.toggle
+{
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 16px 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 60px;
+    padding-right: 60px;
+    width: 50%;
+    height: 60px;
+    border-radius: 30px;
+    background: radial-gradient(circle 30px, white 100%, transparent calc(100% + 1px)) #ccc -50px;
+    transition: 0.1s ease-in-out;
+    transition-duration: 0.1s;
+    transition-timing-function: linear;
+    outline: none;
+}
+  
+.toggle:checked
+{
+    background-color: #ccc;
+    background-position: 50px;
+    background-color: dodgerBlue;
+}*/
+

@@ -1,0 +1,31 @@
+{
+    "titleText": "Computer Remote Control",
+
+    "leftKeyOne": ["LEFT", 37],
+    "leftKeyTwo": ["UP", 38],
+    "leftKeyThree": ["DOWN", 40],
+    "leftKeyFour": ["ESCAPE", 27],
+    "leftKeyFive": ["WIN LEFT", 91],
+
+    "middleKeyOne": ["LEFT", 37],
+    "middleKeyTwo": ["UP", 38],
+    "middleKeyThree": ["DOWN", 40],
+    "middleKeyFour": ["ESCAPE", 27],
+    "middleKeyFive": ["WIN LEFT", 91],
+
+    "rightKeyOne": ["RIGHT", 39],
+    "rightKeyTwo": ["VOL +", 175],
+    "rightKeyThree": ["VOL -", 174],
+    "rightKeyFour": ["VOL MUTE", 173],
+    "rightKeyFive": ["PLAY/PAUSE", 179],
+
+    "connectionType": "websocket",
+    "screenshotStreamType": "live",
+    "hapticsVibrations": "on",
+    "darkMode": "on",
+    
+    "routerWiFi": true,
+    "hotspotWiFi": false,
+    "cableLan": false,
+    "portNumber": 4321
+}

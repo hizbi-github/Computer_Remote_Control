@@ -1,0 +1,19 @@
+{
+  "name": "computer-remote-control",
+  "version": "0.0.1",
+  "description": "Send keystrokes and get a live view of your computer screen from a web browser (e.g. a phone browser). Only works on your local network.",
+  "bin": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "hizbi-github",
+  "license": "MIT",
+  "dependencies": {
+    "hyper-express": "6.4.5",
+    "images": "^3.2.4",
+    "screenshot-desktop": "1.12.7"
+  },
+  "devDependencies": {
+    "caxa": "^2.1.0"
+  }
+}
